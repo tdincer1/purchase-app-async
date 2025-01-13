@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class MailService {
 
-    @Async
+    @Async("mailTaskExecutor")
     public void sendMail(String mailAddress, int itemId) throws InterruptedException {
         log.info(String.format("sending mail to %s for %d", mailAddress, itemId));
         Thread.sleep(2000L);
